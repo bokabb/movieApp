@@ -93,7 +93,9 @@ p {
 #navMenuBlock ul li div {
     position: absolute;
     height: 1px;
-    top:20px;
+    padding: 0;
+    background: #4096ee;
+    top:40px;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -104,7 +106,6 @@ p {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    border-bottom: 2px solid #4096ee;
 }
 
 
