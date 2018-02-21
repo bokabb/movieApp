@@ -2,11 +2,11 @@
 var displayLoginForm = function () {
 
     var formDisplay = "<form action='#'>"
-                    + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>"
-                    + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>"
-                    + "<p id='formMessage'></p>"
-                    + "<input type='submit' id='loginButton' value='Login to App'>"
-                    + "</form>";
+        + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>"
+        + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>"
+        + "<p id='formMessage'></p>"
+        + "<input type='submit' id='loginButton' value='Login to App'>"
+        + "</form>";
     document.querySelector("#appContent #formBlock").innerHTML = formDisplay;
     document.getElementById("loginButton").addEventListener("click", checkUser);
 };
@@ -19,7 +19,7 @@ var getStorageData = function (storageKey) {
     return JSON.parse(localStorage.getItem(storageKey));
 };
 
-var createFormTag = function (fieldType, fieldAttributes, listName) { 
+var createFormTag = function (fieldType, fieldAttributes, listName) {
 
     var tag = "";
     var tagAttributes = "";
@@ -30,12 +30,8 @@ var createFormTag = function (fieldType, fieldAttributes, listName) {
         tag = "<input " + tagAttributes + ">";
     } else if (fieldType == "select") {
         tag = "<select class='form-field' id='" + listName + "'>";
-        for (var fieldAttribute in fieldAttributes) {
-            if (fieldAttribute == "values") {
-                for (var option in fieldAttributes["values"]) {
-                    tag += "<option value='" + Object.values(fieldAttributes["values"][option])[1] + "'>" + Object.values(fieldAttributes["values"][option])[1] + "</option>";
-                }
-            }
+        for (var option in fieldAttributes["values"]) {
+            tag += "<option value='" + Object.values(fieldAttributes["values"][option])[1] + "'>" + Object.values(fieldAttributes["values"][option])[1] + "</option>";
         }
         tag += "</select>";
     } else {
@@ -54,12 +50,12 @@ var addFormData = function (storageKey, sourceForm) {
     }
     var sourceFields = document.querySelectorAll("#" + sourceForm + " input, #" + sourceForm + " select");
     var dataArray = getStorageData(storageKey);
-    var nextID = 1; 
+    var nextID = 1;
     if (dataArray != null && dataArray.length > 0) {
         nextID = dataArray[dataArray.length - 1].id + 1;
     }
     dataObj["id"] = nextID;
-    for (var field= 0; i < sourceFields.length; field++) {
+    for (var field = 0; field < sourceFields.length; field++) {
         if (sourceFields[field].type != "submit" && sourceFields[field].type != "button") {
             dataObj[sourceFields[field].id] = sourceFields[field].value;
         }
@@ -71,7 +67,7 @@ var addFormData = function (storageKey, sourceForm) {
 function updateData(storageKey, dataKey, dataID) {
 
     var changeDataFields = document.getElementsByClassName("changeDataField");
-    for (var dataField= 0; dataField < changeDataFields.length; dataField++) {
+    for (var dataField = 0; dataField < changeDataFields.length; dataField++) {
         changeDataFields[dataField].addEventListener("change", function (e) {
             var dataFromStorage = getStorageData(storageKey);
             for (var key in dataFromStorage) {
@@ -146,7 +142,7 @@ function isLoggedIn() {
 
 function logOutUser() {
     localStorage.removeItem("loggedUser");
-    location.reload(true); 
+    location.reload(true);
 }
 
 function getLoggedUser() {
