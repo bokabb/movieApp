@@ -61,7 +61,6 @@ for (var i = 0; i < menuItems.length; i++) {
     })
 }
 
-//Ajax funkcija preko koje učitavam druge stranice u div-u na index stranici
 function ajaxGetFileContent(url){
     
     var xhr = new XMLHttpRequest();

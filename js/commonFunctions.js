@@ -2,23 +2,22 @@
 var displayLoginForm = function () {
 
     var formDisplay = "<form action='#'>";
-    formDisplay += "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>";
-    formDisplay += "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>";
-    formDisplay += "<p id='formMessage'></p>";
-    formDisplay += "<input type='submit' id='loginButton' value='Login to App'>";
-    formDisplay += "</form>";
-
+                    + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>";
+                    + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>";
+                    + "<p id='formMessage'></p>";
+                    + "<input type='submit' id='loginButton' value='Login to App'>";
+                    + "</form>";
     document.querySelector("#appContent #formBlock").innerHTML = formDisplay;
     document.getElementById("loginButton").addEventListener("click", checkUser);
-}
+};
 
 var putDataToStorage = function (storageKey, data) {
     localStorage.setItem(storageKey, JSON.stringify(data));
-}
+};
 
 var getStorageData = function (storageKey) {
     return JSON.parse(localStorage.getItem(storageKey));
-}
+};
 
 var createFormTag = function (fieldType, fieldAttributes, listName) { 
 
@@ -34,7 +33,7 @@ var createFormTag = function (fieldType, fieldAttributes, listName) {
         tag = "<select class='form-field' id='" + listName + "'>";
         for (var fieldAttribute in fieldAttributes) {
             if (fieldAttribute == "values") {
-                for (var option in fieldAttributes[fieldAttribute]) {
+                for (var option in fieldAttributes["values"]) {
                     tag += "<option value='" + Object.values(fieldAttributes[fieldAttribute][option])[1] + "'>" + Object.values(fieldAttributes[fieldAttribute][option])[1] + "</option>";
                 }
             }
@@ -44,7 +43,7 @@ var createFormTag = function (fieldType, fieldAttributes, listName) {
         tag = "<input " + tagAttributes + ">";
     }
     return tag;
-}
+};
 
 var addFormData = function (storageKey, sourceForm) {
 
@@ -69,7 +68,7 @@ var addFormData = function (storageKey, sourceForm) {
     }
     storageData.push(dataObj);
     putDataToStorage(storageKey, storageData);
-}
+};
 
 function updateData(storageKey, dataKey, dataID) {
 
@@ -123,7 +122,7 @@ var displayTableData = function (storageKey, targetElement) {
     } else {
         document.getElementById(targetElement).innerHTML = "<p>There is no inserted data!</p>";
     }
-}
+};
 
 var deleteDataObject = function (tableID, storageKey) {
 
@@ -142,7 +141,7 @@ var deleteDataObject = function (tableID, storageKey) {
     }
     putDataToStorage(storageKey, storageData);
     displayTableData(storageKey, "appResults");
-}
+};
 
 function isLoggedIn() {
     return localStorage.getItem("loggedUser");
