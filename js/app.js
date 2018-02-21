@@ -95,6 +95,7 @@ function initApp() {
     document.getElementById("logOutItem").addEventListener("click", logOutUser);
     document.getElementById("loggedUser").innerHTML += getLoggedUser();
     document.getElementById("appContent").style.display = "none";
+    addListenerOnNavMenuItems();
 }
 
 function addListenerOnNavMenuItems() {
