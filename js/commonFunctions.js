@@ -142,7 +142,7 @@ function isLoggedIn() {
 
 function logOutUser() {
     localStorage.removeItem("loggedUser");
-    location.reload(true);
+    location.reload();
 }
 
 function getLoggedUser() {
@@ -156,7 +156,9 @@ function checkUser() {
     if (getUserPass(formUsername.value) == formPassword.value || formUsername.value == "superuser") {
         found = true;
         setUserSession(formUsername.value);
-        location.reload(true);
+        setTimeout(function(){
+            location.reload();
+        },100)
     } else {
         document.getElementById("formMessage").innerHTML = "Wrong data!";
     }
