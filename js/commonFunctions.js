@@ -2,10 +2,10 @@
 var displayLoginForm = function () {
 
     var formDisplay = "<form action='#'>"
-                    + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>";
-                    + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>";
-                    + "<p id='formMessage'></p>";
-                    + "<input type='submit' id='loginButton' value='Login to App'>";
+                    + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>"
+                    + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>"
+                    + "<p id='formMessage'></p>"
+                    + "<input type='submit' id='loginButton' value='Login to App'>"
                     + "</form>";
     document.querySelector("#appContent #formBlock").innerHTML = formDisplay;
     document.getElementById("loginButton").addEventListener("click", checkUser);
