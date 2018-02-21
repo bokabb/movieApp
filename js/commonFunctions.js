@@ -23,7 +23,6 @@ var createFormTag = function (fieldType, fieldAttributes, listName) {
 
     var tag = "";
     var tagAttributes = "";
-
     for (var attribute in fieldAttributes) {
         tagAttributes += attribute + "=" + fieldAttributes[attribute] + " ";
     }
@@ -34,7 +33,7 @@ var createFormTag = function (fieldType, fieldAttributes, listName) {
         for (var fieldAttribute in fieldAttributes) {
             if (fieldAttribute == "values") {
                 for (var option in fieldAttributes["values"]) {
-                    tag += "<option value='" + Object.values(fieldAttributes[fieldAttribute][option])[1] + "'>" + Object.values(fieldAttributes[fieldAttribute][option])[1] + "</option>";
+                    tag += "<option value='" + Object.values(fieldAttributes["values"][option])[1] + "'>" + Object.values(fieldAttributes["values"][option])[1] + "</option>";
                 }
             }
         }
@@ -61,9 +60,9 @@ var addFormData = function (storageKey, sourceForm) {
         nextID = dataArray[dataArray.length - 1].id + 1;
     }
     dataObj["id"] = nextID;
-    for (var i = 0; i < sourceFields.length; i++) {
-        if (sourceFields[i].type != "submit" && sourceFields[i].type != "button") {
-            dataObj[sourceFields[i].id] = sourceFields[i].value;
+    for (var field= 0; i < sourceFields.length; field++) {
+        if (sourceFields[field].type != "submit" && sourceFields[field].type != "button") {
+            dataObj[sourceFields[field].id] = sourceFields[field].value;
         }
     }
     storageData.push(dataObj);
@@ -73,8 +72,8 @@ var addFormData = function (storageKey, sourceForm) {
 function updateData(storageKey, dataKey, dataID) {
 
     var changeDataFields = document.getElementsByClassName("changeDataField");
-    for (var i = 0; i < changeDataFields.length; i++) {
-        changeDataFields[i].addEventListener("change", function (e) {
+    for (var dataField= 0; dataField < changeDataFields.length; dataField++) {
+        changeDataFields[dataField].addEventListener("change", function (e) {
             var dataFromStorage = getStorageData(storageKey);
             for (var key in dataFromStorage) {
                 if (dataFromStorage[key].id == dataID) {
@@ -109,8 +108,8 @@ var displayTableData = function (storageKey, targetElement) {
         document.querySelector("#" + targetElement + " h2").innerHTML += storageItems.length;
 
         var changeDataItem = document.getElementsByClassName("changeItem");
-        for (var i = 0; i < changeDataItem.length; i++) {
-            changeDataItem[i].addEventListener("click", function (e) {
+        for (var newItem = 0; newItem < changeDataItem.length; newItem++) {
+            changeDataItem[newItem].addEventListener("click", function (e) {
                 e.target.innerHTML = "<form action='#'><input type='text' value='" + e.target.innerHTML + "' data-id='" + e.target.getAttribute('data-value') + "' data-key='" + e.target.getAttribute('data-key') + "' class='changeDataField'></form>";
                 updateData(storageKey, e.target.getAttribute('data-key'), e.target.getAttribute('data-value'));
             });
@@ -128,10 +127,10 @@ var deleteDataObject = function (tableID, storageKey) {
 
     var storageData = getStorageData(storageKey);
     var tableCheckBoxes = document.querySelectorAll("#" + tableID + " input[type=checkbox]");
-    for (var i = 0; i < tableCheckBoxes.length; i++) {
-        if (tableCheckBoxes[i].checked == true) {
+    for (var input = 0; input < tableCheckBoxes.length; input++) {
+        if (tableCheckBoxes[input].checked == true) {
             for (var data in storageData) {
-                if (storageData[data].id == tableCheckBoxes[i].value) {
+                if (storageData[data].id == tableCheckBoxes[input].value) {
                     console.log("Brisem objekat iz niza", storageData[data]);
                     storageData.splice(storageData.indexOf(storageData[data]), 1);
                     break;
@@ -176,9 +175,9 @@ function setUserSession(username) {
 function getUserPass(username) {
     var users = getStorageData("users");
     var userPassword;
-    for (var u in users) {
-        if (users[u].username == username) {
-            userPassword = users[u].password;
+    for (var user in users) {
+        if (users[user].username == username) {
+            userPassword = users[user].password;
         }
     }
     return userPassword;
