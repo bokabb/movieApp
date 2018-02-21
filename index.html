@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aplikacija Katalog Filmova - CMS</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <!-- Učitavam fontove -->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Glavni div koji okružuje sve divove na stranici -->
+    <div class="block-100 padd-0" id="frontendPageBlock">
+        <!-- Div na vrhu stranice -->
+        <div class="block-100 padd-0" id="pageHeaderFixedTopBlock">
+            <!-- Logo -->
+            <div class="block-20" id="logoBlock">
+                <div class="block-20 padd-0">
+                    <img src="/img/logo.png" alt="Movie App Logo" class="responsive-img">
+                </div>
+                <div class="block-80 padd-0">
+                    <h1 class="text-left">
+                        <span>Movies</span> App
+                    </h1>
+                    <h4 class="text-left">Track IMDB movie reviews</h4>
+                </div>
+            </div>
+            <!-- Meni -->
+            <div class="block-30" id="navMenuBlock">
+                <ul>
+                    <li>
+                        <a href="/">Movies</a>
+                        <div class="block-100"></div>
+                    </li>
+                    <li>
+                        <a href="#" class="menuItem" data-page="aboutUs.html">About Us</a>
+                        <!-- Linijica koja se prikazuje na hover -->
+                        <div class="block-100"></div>
+                    </li>
+                    <li>
+                        <a href="#" class="menuItem" data-page="contact.html">Contact</a>
+                        <div class="block-100"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Ovaj div nam okružuje forme koje učitavamo preko js-a -->
+        <div class="center-block-1200">
+            <div class="block-100" id="frontendContent">
+                <div class="block-100" id="genresBlock"></div>
+                <div class="block-100" id="moviesBlock"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="block-100 top-20" id="pageFooterFixedBottomBlock">
+            <p>Copyright &copy; by Bojana Baić - FrontEnd Developer</p>
+        </div>
+
+    </div>
+     <!-- Ovde se završava glavni div -->
+     
+    <script src="/js/commonFunctions.js"></script>
+    <script src="/js/frontend.js"></script>
+
+</body>
+</html>

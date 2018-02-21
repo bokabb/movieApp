@@ -1,0 +1,263 @@
+/*zajednička svojstva za CMS i FRONTEND*/
+
+* {margin: 0;font-family: Abel;font-weight: 100;}
+
+/*dajem podrazumevanu boju naslovima*/
+h1,h2,h3,h4,h5 {
+    color:#555;
+}
+
+/*stavljam podrazumevano margin sa svih strana za p tag*/
+p {
+    margin: 10px;
+}
+
+/*naslov u logo divu*/
+#logoBlock h1 {
+    color: white;
+}
+/*naslov h4 u logo divu*/
+#logoBlock h4 {
+    color: #999;
+}
+/*ovo gađa span tag koji je u h1 tagu koji je u #logoBlock-u*/
+#logoBlock h1 span {
+    color: #4096ee;
+}
+
+/*nav menu css*/
+
+#navMenuBlock {
+    float:right;
+    transition: all 0.5s;
+}
+
+#frontendPageBlock #navMenuBlock {
+    display: block;
+    width: 40%;
+}
+
+#navMenuBlock ul {
+    list-style-type:none;
+    padding-left:0;
+    margin:0;
+    display: none;
+}
+
+#frontendPageBlock ul {
+    display: block;
+}
+
+#navMenuBlock ul li {
+    float:left;
+    position:relative;
+    width:20%;
+    background: #333;
+}
+
+#navMenuBlock ul li a {
+    display:block;
+    width:100%;
+    padding:10px;
+    text-decoration:none;
+    font-size:18px;
+    color:#999; 
+}
+
+#navMenuBlock ul li a:hover {
+    color:white;
+}
+
+#navMenuBlock ul ul {
+    width:100%;
+    position:absolute;
+    left:0;
+    display:none;
+}
+
+#navMenuBlock ul ul ul {
+    position:absolute;
+    left: 100%;
+    top: 0;
+}
+
+#navMenuBlock ul li ul li {
+    width:100%;
+}
+
+#navMenuBlock ul li:hover > ul {
+    display:block;
+    background:white;
+}
+
+#navMenuBlock ul li div {
+    position: absolute;
+    height: 1px;
+    top:20px;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: all 0.5s;
+}
+
+#navMenuBlock ul li:hover div {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    border-bottom: 2px solid #4096ee;
+}
+
+
+/*podrazumevani stil za tabele*/
+table {
+    width: 100%;
+}
+
+tr td {
+    border: 1px solid #eee;
+    text-align: center; 
+}
+
+/*CMS css start*/
+
+
+/*postavljam visinu glavnog diva i stavljam pozadinsku gradient boju*/
+#pageBlock {
+/*za min visinu postavljam visinu ekrana*/
+    min-height: 100vh;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+/*fixiran div na vrhu stranice, tu nam stoji logo i meni*/
+#pageHeaderFixedTopBlock {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background: #333;
+    box-shadow: 0 0 20px 0 red;
+}
+/*fixiran footer u cms-u*/
+#pageFooterFixedBottomBlock {
+
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    color: #555;
+}
+/*div gde prikazujem tabelu sa podacima*/
+#appResults {
+    background: white;
+    display: none;
+    border-radius: 10px;
+    padding-bottom: 100px;
+}
+
+#appResults h2 {
+    color: #333;
+    text-align: left;
+    padding: 10px;
+}
+
+/*Div u CMS-u gde se učitavaju forme*/
+#appContent {
+    background: white;
+    margin-top: 20vh;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #ccc;
+    transition: all 0.5s; 
+}
+
+#appContent h2 {
+    color: white;
+    width: 40%;
+    margin: auto;
+    background: #4096ee;
+}
+
+/*CMS css end*/
+
+/*FRONTEND css start*/
+
+/*glavni div na index stranici, stavljam drugi background*/
+#frontendPageBlock {
+    height: 100vh;
+    background: url('/img/ticket.jpg') no-repeat;
+    background-size:100% 100%; 
+}
+
+/*centralni div na index stranici*/
+#frontendContent {
+    margin-top: 20vh;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.8);
+}
+
+/*tabovi sa žanrovima na index stranici*/
+.filterTabItem {
+    cursor: pointer;
+}
+
+/*hover za tabove*/
+.filterTabItem:hover {
+    background: #eee;
+    color:#999;
+}
+
+/*FRONTEND css end*/
+
+/*Responsive CSS*/
+
+@media screen and (max-width:960px){
+
+    .center-block-50 {
+        width: 100%;
+        float: left;
+    }
+
+
+    #navMenuBlock{
+        width: 100%;
+    }
+
+    #navMenuBlock ul li a{
+        font-size: 13px;
+    }
+
+    #navMenuBlock ul li:hover > ul {
+        position: relative;
+    }
+}
+
+@media screen and (max-width:760px){
+
+    #frontendContent {
+        margin-top: 40vh;
+    }
+    .filterTabItem {
+        width: 50%;
+    }
+    .tabItems {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:480px){
+    #logoBlock{
+        width: 100%;
+    }
+    #frontendPageBlock #navMenuBlock {
+        width: 100%;
+    }
+
+}

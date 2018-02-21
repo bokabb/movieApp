@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aplikacija Katalog Filmova - CMS</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <!-- Učitavam fontove -->
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Glavni div koji okružuje sve divove na stranici -->
+    <div class="block-100 padd-0" id="pageBlock">
+        <!-- Div na vrhu stranice -->
+        <div class="block-100 padd-0" id="pageHeaderFixedTopBlock">
+            <!-- Logo -->
+            <div class="block-20" id="logoBlock">
+                <div class="block-20 padd-0">
+                    <img src="/img/logo.png" alt="Movie App Logo" class="responsive-img">
+                </div>
+                <div class="block-80 padd-0">
+                    <h1 class="text-left">
+                        <span>Movies</span> App
+                    </h1>
+                    <h4 class="text-left">Manage movie data</h4>
+                </div>
+            </div>
+            <!-- Meni -->
+            <div class="block-30" id="navMenuBlock">
+                <ul>
+                    <li>
+                        <a href="#" class="menuItem" data-form="users">Users</a>
+                        <div class="block-100"></div>
+                        <ul>
+                            <li>
+                                <a href="#" class="menuItem" data-form="roles">User Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="menuItem" data-form="movies">Movies</a>
+                        <!-- Linijica koja se prikazuje na hover -->
+                        <div class="block-100"></div>
+                    </li>
+                    <li>
+                        <a href="#" class="menuItem" data-form="actors">Actors</a>
+                        <div class="block-100"></div>
+                    </li>
+                    <li>
+                        <a href="#" class="menuItem" data-form="genres">Genres</a>
+                        <div class="block-100"></div>
+                    </li>
+                    <li>
+                        <a href="#" id="loggedUser"></a>
+                        <div class="block-100"></div>
+                        <ul>
+                            <li>
+                                <a href="#" id="logOutItem">Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Ovaj div nam okružuje forme koje učitavamo preko js-a -->
+        <div class="center-block-1200">
+            <div class="center-block-50" id="appContent">
+                <div class="block-100">
+                    <h4>App CMS</h4>
+                    <!-- U formTitle ubacujemo naslov za svaku formu preko js-a -->
+                    <h2 id="appFormTitle">Login</h2>
+                    <!-- U formBlock učitavamo forme -->
+                    <div id="formBlock">
+                        <!--ovde loadujem forme iz app.js-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-block-80">
+            <!-- Ovde učitavamo tabelu sa unetim podacima -->
+            <div class="block-100" id="appResults">
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="block-100 top-20" id="pageFooterFixedBottomBlock">
+            <p>Copyright &copy; by Bojana Baić - FrontEnd Developer</p>
+        </div>
+
+    </div>
+    <!-- Ovde se završava glavni div -->
+
+    <!-- Učitavam js fajlove -->
+    <script src="/js/commonFunctions.js"></script>
+    <script src="/js/app.js"></script>
+
+</body>
+</html>
