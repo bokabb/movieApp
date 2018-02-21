@@ -52,7 +52,6 @@ var addFormData = function (storageKey, sourceForm) {
     if (storageData == null) {
         storageData = [];
     }
-
     var sourceFields = document.querySelectorAll("#" + sourceForm + " input, #" + sourceForm + " select");
     var dataArray = getStorageData(storageKey);
     var nextID = 1; 
@@ -92,7 +91,6 @@ var displayTableData = function (storageKey, targetElement) {
 
     var storageItems = getStorageData(storageKey);
     var tableID = storageKey + "table";
-
     var table = "<h2>Inserted Data: </h2><table id='" + tableID + "'>";
     if (storageItems != null && storageItems.length > 0) {
         for (var item in storageItems) {

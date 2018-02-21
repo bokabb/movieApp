@@ -40,7 +40,6 @@ var AppManager = function () {
 
     AppManager.prototype.currentAppForm = [];
     AppManager.prototype.currentAppFormName = "";
-
     console.log("Pokrenut AppManager Konstruktor, inicijalizujem objekat sa formama: ", this.formsObject);
 }
 
@@ -101,9 +100,8 @@ function initApp() {
 function addListenerOnNavMenuItems() {
 
     var menuItems = document.getElementsByClassName("menuItem");
-    for (var i = 0; i < menuItems.length; i++) {
-        // console.log("Dodajem klik na stavke u meniju!");
-        menuItems[i].addEventListener("click", function (e) {
+    for (var menu = 0; menu < menuItems.length; menu++) {
+        menuItems[menu].addEventListener("click", function (e) {
             var appInit = new AppManager();
             appInit.getFormFromObject(e.target.getAttribute("data-form"));
             appInit.displayForm();
