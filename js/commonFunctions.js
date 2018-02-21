@@ -1,7 +1,7 @@
 
 var displayLoginForm = function () {
 
-    var formDisplay = "<form action='#'>";
+    var formDisplay = "<form action='#'>"
                     + "<p><input type='text' id='usernameInput' class='form-field' placeholder='Username'></p>";
                     + "<p><input type='password' id='passwordInput' class='form-field' placeholder='Password'></p>";
                     + "<p id='formMessage'></p>";
