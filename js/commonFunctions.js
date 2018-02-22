@@ -3,7 +3,7 @@ function log(){
     if(logDisabled){
         return
     }
-    return console.log.apply(console, arguments);;
+    return console.log.apply(console, arguments);
 }
 
 var displayLoginForm = function () {
