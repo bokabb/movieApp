@@ -1,6 +1,6 @@
 var AppManager = function () {
-
-    AppManager.prototype.formsObject = {
+    
+    this.formsObject = {
         "actors": [
             { "type": "text", "id": "actorName", "placeholder": "Name", "class": "form-field" },
             { "type": "text", "id": "description", "placeholder": "Description", "class": "form-field" },
@@ -38,9 +38,10 @@ var AppManager = function () {
         ]
     };
 
-    AppManager.prototype.currentAppForm = [];
-    AppManager.prototype.currentAppFormName = "";
+    this.currentAppForm = [];
+    this.currentAppFormName = "";
     console.log("Pokrenut AppManager Konstruktor, inicijalizujem objekat sa formama: ", this.formsObject);
+    console.log(getStorageData("movies"));
 }
 
 AppManager.prototype.getFormFromObject = function (formName) {
