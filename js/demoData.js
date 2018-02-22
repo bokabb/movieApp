@@ -91,4 +91,5 @@ function loadDemoData() {
             putDataToStorage(data, demoData[data]);
         }
     }
+    alert("Demo data loaded!!!");
 }
