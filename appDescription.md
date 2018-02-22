@@ -7,7 +7,7 @@ __Struktura Foldera__
 - html - index.html, cms.html (na tim stranicama nalaze se divovi u koje učitavamo forme ili druge stranice)
 - css - css fajlove (layout.css i app.css)
 - img - slike
-- js – javascript  fajlove koje koristi aplikacija (app.js, commonFunction.js i frontend.js)
+- js – javascript  fajlove koje koristi aplikacija (app.js, commonFunction.js, frontend.js i demoData.js)
 
 
 __OPIS__
