@@ -1,14 +1,15 @@
-
 * {box-sizing:border-box; font-family:"Arial Narrow";}
 a {text-decoration: none;}
 
 /*klase za boje texta*/
 
 .white {color:white;}
+.black {color: black;}
+.grey {color:grey;}
 .red {color:red;}
 .green {color:green;}
 .blue {color:blue;}
-.grey {color:grey;}
+.seablue {color:#0b4af8;}
 .yellow {color:yellow;}
 
 
