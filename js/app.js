@@ -44,7 +44,7 @@ var AppManager = function () {
 }
 
 AppManager.prototype.getFormFromObject = function (formName) {
-    
+
     var allForms = this.formsObject;
     for (var form in allForms) {
         if (form == formName) {
@@ -110,6 +110,9 @@ function addListenerOnNavMenuItems() {
             displayTableData(e.target.getAttribute("data-form"), "appResults");
         })
     }
+    document.getElementById("demoDataItem").addEventListener("click", function () {
+        loadDemoData();
+    })
 }
 
 checkAppUser();
