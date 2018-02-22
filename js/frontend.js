@@ -13,15 +13,30 @@ function displayMoviesBlock() {
 }
 
 function displayGenresBlock() {
-
-    var genres = getStorageData("genres");
-
-    document.getElementById("genresBlock").innerHTML += "<div class='block-20 border filterTabItem' data-item='all'>Show All</div>";
-
-    for (var genre in genres) {
-        document.getElementById("genresBlock").innerHTML += "<div class='block-20 border filterTabItem' data-item='" + genres[genre].genreName + "'>" + genres[genre].genreName + "</div>";
+    
+        var genres = getStorageData("genres"),
+            counters=getCounters();
+    
+        document.getElementById("genresBlock").innerHTML += "<div class='block-20 border bold seablue filterTabItem' data-item='all'>Show All ("+counters.All +")</div>";
+        for (var genre in genres) {
+            var counter=counters[genres[genre].genreName] || 0;
+            document.getElementById("genresBlock").innerHTML += "<div class='block-20 border filterTabItem' data-item='" + genres[genre].genreName + "'>" + genres[genre].genreName + " ("+counter+")</div>";
+        }
     }
-}
+    function getCounters(){
+        var movies = getStorageData("movies"),
+            counter={},
+            counterAll=0;
+        for(var movie in movies){
+            if(typeof counter[movies[movie].genre]==='undefined'){
+                counter[movies[movie].genre]=0;
+            }
+            counter[movies[movie].genre]++;
+            counterAll++;
+        }
+        counter.All=counterAll;
+        return counter;
+    }
 
 tabItemsShow();
 
