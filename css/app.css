@@ -190,21 +190,28 @@ tr td {
 
 /*glavni div na index stranici, stavljam drugi background*/
 #frontendPageBlock {
-    height: 100vh;
+    min-height: 100vh;
     background: url('/img/ticket.jpg') no-repeat;
     background-size:100% 100%; 
+    background-attachment: fixed; 
 }
 
 /*centralni div na index stranici*/
 #frontendContent {
     margin-top: 20vh;
     border-radius: 10px;
-    background: rgba(255,255,255,0.8);
 }
-
+#aboutUsBlock, #contactBlock {
+    background: rgba(211, 203, 203, 0.7);
+    border-radius: 10px;
+}
+#moviesBlock{
+    padding-bottom: 50px;
+}
 /*tabovi sa žanrovima na index stranici*/
 .filterTabItem {
     cursor: pointer;
+    background: rgba(124, 123, 123, 0.7);
 }
 
 /*hover za tabove*/
@@ -223,7 +230,6 @@ tr td {
         width: 100%;
         float: left;
     }
-
 
     #navMenuBlock{
         width: 100%;
@@ -249,7 +255,6 @@ tr td {
     .tabItems {
         width: 100%;
     }
-
 }
 
 @media screen and (max-width:480px){
