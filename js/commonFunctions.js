@@ -1,3 +1,10 @@
+var logDisabled=true;
+function log(){
+    if(logDisabled){
+        return
+    }
+    return console.log.apply(console, arguments);;
+}
 
 var displayLoginForm = function () {
 
