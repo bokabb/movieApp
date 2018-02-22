@@ -18,7 +18,6 @@ function displayMoviesBlock() {
     for (var movie in movies) {
         document.getElementById("moviesBlock").innerHTML += "<div class='block-20 tabItems " + movies[movie].genre + "'><a href='http://www.imdb.com/title/" + movies[movie].imdbNumber + "' target='_blank'><img src='/img/" + movies[movie].image + "' alt='" + movies[movie].title + "'><div class='block-100 black bold'>" + movies[movie].title + "</div></div>";
     }
-
 }
 
 function displayGenresBlock() {
