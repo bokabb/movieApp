@@ -35,9 +35,9 @@ __App.js__
 - funkcija initApp() - u slučaju da je korisnik logovan, ona se poziva 
 - initApp()- pre svega dodaje događaj klik ("clik") na stavke u nav (navigacionom) meniju,
 - svaka stavka u nav meniju ima custom data-form atribut, tako da kad se klikne na stavku,
-    inicijalizuje se konstruktor AppManager i pozivaju se njegove metode getFormFromArray() i displayForm()
+    inicijalizuje se konstruktor AppManager i pozivaju se njegove metode getFormFromObject() i displayForm()
 
-__getFormFromArray()__ - metoda prolazi kroz niz sa formama i postavlja traženu formu u konstruktoru
+__getFormFromObject()__ - metoda prolazi kroz niz sa formama i postavlja traženu formu u konstruktoru
                           (kada pozivamo metodu šaljemo joj kao parametar naziv forme);
  __displayForm()__ - metoda preuzima postavljenu formu (objekat) iz konstruktora, prolazi kroz nju i 
                       poziva funkciju koja kreira tag u zavisnosti od prosleđenih parametara, 
