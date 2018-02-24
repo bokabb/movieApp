@@ -60,7 +60,7 @@ function loadDemoData() {
                 { "id": 10, "title": "American beauty", "genre": "Drama", "actor": "Kevin Spacey", "duration": "122 min.", "image": "americanb.jpg", "imdbNumber": "tt0169547" },
                 { "id": 11, "title": "Fight club", "genre": "Drama", "actor": "Brad Pitt", "duration": "139 min.", "image": "fight_club.jpg", "imdbNumber": "tt0137523" },
                 { "id": 12, "title": "Gladiator", "genre": "Action", "actor": "Russell Crowe", "duration": "155 min.", "image": "gladiator.jpg", "imdbNumber": "tt0172495" },
-                { "id": 13, "title": "The Psysician", "genre": "Adventure", "actor": "Tom Payne", "duration": "150 min.", "image": "thephysician.jpg", "imdbNumber": "tt2101473" },
+                { "id": 13, "title": "The Physician", "genre": "Adventure", "actor": "Tom Payne", "duration": "150 min.", "image": "thephysician.jpg", "imdbNumber": "tt2101473" },
                 { "id": 14, "title": "Life is beautiful", "genre": "Comedy", "actor": "Roberto Begnini", "duration": "116 min.", "image": "lifeb.jpg", "imdbNumber": "tt0118799" },
                 { "id": 15, "title": "Shrek", "genre": "Animation", "actor": "Eddie Murphy", "duration": "90 min.", "image": "shrek.jpg", "imdbNumber": "tt0126029" },
                 { "id": 16, "title": "Law Abiding Citizen", "genre": "Crime", "actor": " Gerard Butler ", "duration": "119 min.", "image": "law-ac.jpg", "imdbNumber": "tt1197624" },
