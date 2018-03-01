@@ -70,6 +70,46 @@ var addFormData = function (storageKey, sourceForm) {
     storageData.push(dataObj);
     putDataToStorage(storageKey, storageData);
 };
+/*
+var addFormData = function (storageKey, sourceForm) {
+
+    var dataObj = {};
+    var storageData = getStorageData(storageKey);
+
+    if (storageData == null) {
+        storageData = [];
+    }
+    var sourceFields = document.querySelectorAll("#" + sourceForm + " input, #" + sourceForm + " select");
+    var dataArray = getStorageData(storageKey);
+    var nextID = 1;
+    dataObj["id"] = nextID;
+    for (var field = 0; field < sourceFields.length; field++) {
+        if (sourceFields[field].type != "submit" && sourceFields[field].type != "button") {
+            dataObj[sourceFields[field].id] = sourceFields[field].value;
+        }
+    }
+    storageData.push(dataObj);
+    putDataToStorage(storageKey, storageData);
+
+    var followingID = (function () {
+        //console.log(followingID.getNextID(storageKey));
+        var nextID = 1;
+        var dataArray = getStorageData(storageKey);
+        dataObj["id"] = nextID;
+        if (dataArray != null && dataArray.length > 0) {
+            nextID = dataArray[dataArray.length - 1].id + 1;
+        }
+        var getNextID = function () {
+            return nextID;
+        }
+
+        return {
+            getNextID: getNextID
+        }
+    })(storageKey);
+    console.log(followingID.getNextID(storageKey));
+};
+*/
 
 function updateData(storageKey, dataKey, dataID) {
 
@@ -86,6 +126,8 @@ function updateData(storageKey, dataKey, dataID) {
             }
             putDataToStorage(storageKey, dataFromStorage);
             displayTableData(storageKey, "appResults");
+            // followingID(storageKey, "appResults");
+            // getNextID(storageKey, dataID);
         });
     }
 }
@@ -112,10 +154,30 @@ var displayTableData = function (storageKey, targetElement) {
         for (var newItem = 0; newItem < changeDataItem.length; newItem++) {
             changeDataItem[newItem].addEventListener("click", function (e) {
                 e.target.innerHTML = "<form action='#'><input type='text' value='" + e.target.innerHTML + "' data-id='" + e.target.getAttribute('data-value') + "' data-key='" + e.target.getAttribute('data-key') + "' class='changeDataField'></form>";
+                e.target.children[0][0].focus();
                 updateData(storageKey, e.target.getAttribute('data-key'), e.target.getAttribute('data-value'));
             });
         }
 
+        var removeFocus = document.getElementsByClassName("changeDataField");
+        for (var newItem = 0; newItem < removeFocus.length; newItem++) {
+            removeFocus[newItem].addEventListener("blur", function (e) {
+                console.log('item: ' + e.target.value);
+                e.target.parentNode.parentNode.innerHTML = e.target.value;
+                e.target.parentNode.remove();
+            });
+        }
+        document.body.addEventListener('click', function(e) {
+            var removeFocus = document.getElementsByClassName("changeDataField");
+            for (var newItem = 0; newItem < removeFocus.length; newItem++) {
+             removeFocus[newItem].addEventListener("blur", function (e) {
+              console.log('item: ' + e.target.value);
+              e.target.parentNode.parentNode.innerHTML = e.target.value;     
+              e.target.parentNode.remove();
+             });
+            }
+            console.log('Kliknuo: ' + e.target.parentNode.parentNode);
+           }); 
         document.getElementById("deleteDataButton").addEventListener("click", function (e) {
             deleteDataObject(tableID, storageKey);
         })
