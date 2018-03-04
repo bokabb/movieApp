@@ -5,7 +5,7 @@ tabItemsShow();
 
 var menuItems = document.getElementsByClassName("menuItem");
 for (var menu = 0; menu < menuItems.length; menu++) {
-    console.log("Dodajem klik na stavke u meniju!");
+    log("Dodajem klik na stavke u meniju!");
     menuItems[menu].addEventListener("click", function (e) {
         ajaxGetFileContent(e.target.getAttribute("data-page"));
     })
@@ -87,7 +87,7 @@ function ajaxGetFileContent(url) {
             var data = xhr.responseText;
             document.getElementById("frontendContent").innerHTML = data;
         } else {
-            console.log('error:', xhr.status);
+            log('error:', xhr.status);
         }
     };
 }
