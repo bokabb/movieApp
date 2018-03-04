@@ -1,6 +1,6 @@
-var logDisabled=true;
-function log(){
-    if(logDisabled){
+var logDisabled = true; // Change to true to disable all logging to console.log
+function log() {
+    if (logDisabled) {
         return
     }
     return console.log.apply(console, arguments);
@@ -132,22 +132,22 @@ var displayTableData = function (storageKey, targetElement) {
         var removeFocus = document.getElementsByClassName("changeDataField");
         for (var newItem = 0; newItem < removeFocus.length; newItem++) {
             removeFocus[newItem].addEventListener("blur", function (e) {
-                log('item: ' + e.target.value);
+                log("item: " + e.target.value);
                 if (e.target.parentNode.parentNode) e.target.parentNode.parentNode.innerHTML = e.target.value;
                 e.target.parentNode.remove();
             });
         }
-        document.body.addEventListener('click', function(e) {
+        document.body.addEventListener("click", function (e) {
             var removeFocus = document.getElementsByClassName("changeDataField");
             for (var newItem = 0; newItem < removeFocus.length; newItem++) {
-             removeFocus[newItem].addEventListener("blur", function (e) {
-              log('item: ' + e.target.value);
-              if (e.target.parentNode.parentNode) e.target.parentNode.parentNode.innerHTML = e.target.value;     
-              e.target.parentNode.remove();
-             });
+                removeFocus[newItem].addEventListener("blur", function (e) {
+                    log("item: " + e.target.value);
+                    if (e.target.parentNode.parentNode) e.target.parentNode.parentNode.innerHTML = e.target.value;
+                    e.target.parentNode.remove();
+                });
             }
-            log('Kliknuto: ' + e.target.parentNode.parentNode);
-           }); 
+            log("Kliknuo: " + e.target.parentNode.parentNode);
+        });
         document.getElementById("deleteDataButton").addEventListener("click", function (e) {
             deleteDataObject(tableID, storageKey);
         })
@@ -164,7 +164,7 @@ var deleteDataObject = function (tableID, storageKey) {
         if (tableCheckBoxes[input].checked == true) {
             for (var data in storageData) {
                 if (storageData[data].id == tableCheckBoxes[input].value) {
-                    console.log("Brisem objekat iz niza", storageData[data]);
+                    log("Brisem objekat iz niza", storageData[data]);
                     storageData.splice(storageData.indexOf(storageData[data]), 1);
                     break;
                 }
@@ -195,9 +195,9 @@ function checkUser() {
     if (getUserPass(formUsername.value) == formPassword.value || formUsername.value == "superuser") {
         found = true;
         setUserSession(formUsername.value);
-        setTimeout(function(){
+        setTimeout(function () {
             location.reload();
-        },100)
+        }, 100)
     } else {
         document.getElementById("formMessage").innerHTML = "Wrong data!";
     }

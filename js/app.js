@@ -40,8 +40,8 @@ var AppManager = function () {
 
     this.currentAppForm = [];
     this.currentAppFormName = "";
-    console.log("Pokrenut AppManager Konstruktor, inicijalizujem objekat sa formama: ", this.formsObject);
-    console.log(getStorageData("movies"));
+    log("Pokrenut AppManager Konstruktor, inicijalizujem objekat sa formama: ", this.formsObject);
+    log(getStorageData("movies"));
 }
 
 AppManager.prototype.getFormFromObject = function (formName) {
@@ -50,9 +50,9 @@ AppManager.prototype.getFormFromObject = function (formName) {
     for (var form in allForms) {
         if (form == formName) {
             this.currentAppForm = allForms[form];
-            console.log("Našao sam formu, postavljam je kao niz u konstruktor", allForms[form]);
+            log("Našao sam formu, postavljam je kao niz u konstruktor", allForms[form]);
             this.currentAppFormName = form;
-            console.log("Postavljam ime forme u konstruktor", form);
+            log("Postavljam ime forme u konstruktor", form);
             break;
         } else {
             this.currentAppForm = "Form doesn't exist.";
@@ -67,7 +67,7 @@ AppManager.prototype.displayForm = function () {
     var formDisplay = "<form action='#' id='mainForm'>";
 
     for (var selected in selectedForm) {
-        console.log("Metoda display form, prolazim kroz niz sa objektima", selected, "Pristup ključu type u objektu", selectedForm[selected].type);
+        log("Metoda display form, prolazim kroz niz sa objektima", selected, "Pristup ključu type u objektu", selectedForm[selected].type);
         formDisplay += "<p>" + createFormTag(selectedForm[selected].type, selectedForm[selected], selectedForm[selected].id) + "</p>";
     }
     formDisplay += "</form>";
